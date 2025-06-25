@@ -5,8 +5,8 @@ import { preferences } from '@vben/preferences';
 
 import { $t } from '#/locales';
 
-const BasicLayout = () => import('#/layouts/basic.vue');
-const AuthPageLayout = () => import('#/layouts/auth.vue');
+// const BasicLayout = () => import('#/layouts/basic.vue');
+// const AuthPageLayout = () => import('#/layouts/auth.vue');
 /** 全局404页面 */
 const fallbackNotFoundRoute: RouteRecordRaw = {
   component: () => import('#/views/_core/fallback/not-found.vue'),
@@ -28,7 +28,7 @@ const coreRoutes: RouteRecordRaw[] = [
    * 此路由必须存在，且不应修改
    */
   {
-    component: BasicLayout,
+    // component: BasicLayout,
     meta: {
       hideInBreadcrumb: true,
       title: 'Root',
@@ -39,19 +39,19 @@ const coreRoutes: RouteRecordRaw[] = [
     children: [],
   },
   {
-    component: AuthPageLayout,
+    // component: AuthPageLayout,
     meta: {
       hideInTab: true,
-      title: 'Authentication',
+      title: 'ourPage',
     },
-    name: 'Authentication',
+    name: 'ourPage',
     path: '/auth',
     redirect: LOGIN_PATH,
     children: [
       {
         name: 'Login',
         path: 'login',
-        component: () => import('#/views/_core/authentication/login.vue'),
+        component: () => import('#/views/index.vue'),
         meta: {
           title: $t('page.auth.login'),
         },
